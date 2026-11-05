@@ -1,0 +1,32 @@
+# Python / notebooks
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.pytest_cache/
+.DS_Store
+
+# Credentials and configuration
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Keep private and generated data out of the portfolio
+*.csv
+!data/sample/synthetic_hourly.csv
+*.xlsx
+*.xls
+*.parquet
+*.pbix
+*.zip
+data/raw/
+data/private/
+private/
+outputs/
+reports/private/
+
+# Note: .gitignore does not remove files already committed.
+# Always review staged files before committing.

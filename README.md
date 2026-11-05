@@ -12,11 +12,14 @@ Service businesses face variable customer demand across days and hours. A simple
 
 **Analytical question:** How can we combine time-stamped service demand and staff availability to identify intervals worth reviewing while keeping data-quality uncertainty explicit?
 
-## Workflow
+## Workflow and scope
+
+The following describes the full analytical approach. The public demo implements **synthetic hourly validation, aggregation, workload ratios, and a heatmap**. Reconstructing staff-hours from individual clock-in/out records and joining separate orders and staffing tables are **documented methodological steps, not implemented in the public demo**.
+
 
 1. **Load and validate** time-stamped order records and shift coverage data.
-2. **Normalize** observations to date-hour intervals; calculate fractional staff-hours from overlapping shifts.
-3. **Combine** demand and staffing using an outer join, preserving staffed hours without orders and unmatched periods.
+2. **Normalize** observations to date-hour intervals; calculate fractional staff-hours from overlapping shifts (**documented design; the public demo starts from pre-aggregated synthetic staff-hours**).
+3. **Combine** demand and staffing using an outer join, preserving staffed hours without orders and unmatched periods (**documented design; not part of this public demo**).
 4. **Flag uncertain records** rather than imputing unknown staffing as zero.
 5. **Analyze** demand-to-coverage ratios with eligible observation counts and appropriate caveats.
 6. **Visualize** weekday-hour patterns using a heatmap and explain limitations.
@@ -36,7 +39,7 @@ The first command installs requirements, the second regenerates deterministic sy
 ## Repository structure
 
 ```text
-restaurant-staffing-analytics/
+restaurant-operations-analytics-demo/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
